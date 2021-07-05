@@ -31,11 +31,12 @@ class Parking_place():
 
 class Moto(Parking_place):
     park_place = Parking_place.matrixx # atribute to interact with matrix and not copy it
-
+    place = []
     def park_proces(self):
         for i in range(0,3):
             for j in range(0,5):
                 if self.park_place[i][j] == "empty":
+                    self.place = [i],[j]
                     print("Here is place for moto, line:{0}, place:{1}".format([i+1],[j+1])) #add "+1"" to wright numbers of line and place
                     self.park_place [i][j] = "moto"
                     #self.park_place[j].insert(self.park_place[i,j].index("empty"), "moto") / first example which was to hard and long
@@ -43,6 +44,9 @@ class Moto(Parking_place):
                 elif self.park_place[i][j] != "empty":
                     continue
             break
+    def unparking(self):
+        self.park_place
+
 
 
 class Avto(Parking_place):
