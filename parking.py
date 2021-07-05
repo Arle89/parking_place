@@ -15,12 +15,11 @@ class Parking_place():
             if vtype == "moto":
                 vehicle = Moto()
                 vehicle.park_proces()
-                print(self.matrixx)
             elif vtype == "avto":
                 vehicle = Avto()
                 vehicle.park_proces()
             elif vtype == "bus":
-                vehicle == Bus()
+                vehicle = Bus()
                 vehicle.park_proces()
             else:
                 print("Sorry, we has no place for your vehicle")
@@ -29,20 +28,20 @@ class Parking_place():
 
 
 class Moto(Parking_place):
-        park_place = Parking_place.matrixx
+    park_place = Parking_place.matrixx
 
-        def park_proces(self):
-            for i in range(0,3):
-                for j in range(0,5):
-                    if self.park_place[i][j] == "empty":
-                        self.park_place [i][j] = "moto"
-                        #self.park_place[j].insert(self.park_place[i,j].index("empty"), "moto")
-                    break
+    def park_proces(self):
+        for i in range(0,3):
+            for j in range(0,5):
+                if self.park_place[i][j] == "empty":
+                    self.park_place [i][j] = "moto"
+                    #self.park_place[j].insert(self.park_place[i,j].index("empty"), "moto")
                 break
+            break
 
 
 class Avto(Parking_place):
-    park_place = Parking_place.matrix
+    park_place = Parking_place.matrixx
 
     def park_proces(self):
         for i in range(1,3):
@@ -54,11 +53,21 @@ class Avto(Parking_place):
 
 
 class Bus(Parking_place):
-    park_place = Parking_place.matrix
+    park_place = Parking_place.matrixx
 
     def park_proces(self):
-        for i in range()
+        for i in self.park_place[2]:
+            if i == "empty":
+                self.park_place[2] = r"bus"
+                break
+            break
+
 
 x = Parking_place()
 x.display_parking()
 x.park_proces("moto")
+x.display_parking()
+x.park_proces("avto")
+x.park_proces("avto")
+x.park_proces("bus")
+x.display_parking()
