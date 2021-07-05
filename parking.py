@@ -1,38 +1,64 @@
+
+
 class Parking_place():
-    def __init__(self):
-        self.small = small = ['empty','empty','empty','empty','empty']
-        self.medium = medium = ['empty','empty','empty','empty','empty']
-        self.big = big = ['empty','empty','empty','empty','empty']
-        self.matrix = matrix = [small,
-                                medium,
-                                big]
-    
-    def display_parking(self):
-        for i in self.matrix:
-            print(i)
+        small = ['empty','empty','empty','empty','empty']
+        medium = ['empty','empty','empty','empty','empty']
+        big = ['empty','empty','empty','empty','empty']
+        matrixx = [small,
+                medium,
+                big]
+        def display_parking(self):
+            for i in self.matrixx:
+                print(i)
+        
+        def park_proces(self, vtype):
+            if vtype == "moto":
+                vehicle = Moto()
+                vehicle.park_proces()
+                print(self.matrixx)
+            elif vtype == "avto":
+                vehicle = Avto()
+                vehicle.park_proces()
+            elif vtype == "bus":
+                vehicle == Bus()
+                vehicle.park_proces()
+            else:
+                print("Sorry, we has no place for your vehicle")
+
+
 
 
 class Moto(Parking_place):
-    def __init__(self):
-        self.size = size = 1
-        self.park_place = park_place = Parking_place.matrix
-    
-    def parking(self):
-        for i in self.park_place:
-            for j in i:
-                if j == "empty":
-                    print(i.index(j))
-                    j = "moto"
-                else:
-                    print("Parking is busy")
-        print(Parking_place.display_parking)
+        park_place = Parking_place.matrixx
+
+        def park_proces(self):
+            for i in range(0,3):
+                for j in range(0,5):
+                    if self.park_place[i][j] == "empty":
+                        self.park_place [i][j] = "moto"
+                        #self.park_place[j].insert(self.park_place[i,j].index("empty"), "moto")
+                    break
+                break
+
 
 class Avto(Parking_place):
-    def __init__(self):
-        self.size = size = 1
+    park_place = Parking_place.matrix
 
+    def park_proces(self):
+        for i in range(1,3):
+            for j in range(0,5):
+                if self.park_place[i][j] == "empty":
+                    self.park_place[i][j] = "avto"
+                break
+            break
+
+
+class Bus(Parking_place):
+    park_place = Parking_place.matrix
+
+    def park_proces(self):
+        for i in range()
 
 x = Parking_place()
 x.display_parking()
-y = Moto()
-y.parking
+x.park_proces("moto")
