@@ -1,5 +1,6 @@
 # make parking on pure python3 by classes
 
+
 class Parking_place():
         small = ['empty','empty','empty','empty','empty']  # simple matrix to avoid Numpy
         medium = ['empty','empty','empty','empty','empty'] 
@@ -23,7 +24,7 @@ class Parking_place():
                 vehicle = Bus()
                 vehicle.park_proces()
             else:
-                print("Sorry, we has no place for your vehicle")
+                print("Sorry, T800 what are you doing here???")
 
 
 
@@ -35,7 +36,7 @@ class Moto(Parking_place):
         for i in range(0,3):
             for j in range(0,5):
                 if self.park_place[i][j] == "empty":
-                    print("Here is place, line:{0}, place:{1}".format([i],[j]))
+                    print("Here is place for moto, line:{0}, place:{1}".format([i+1],[j+1])) #add "+1"" to wright numbers of line and place
                     self.park_place [i][j] = "moto"
                     #self.park_place[j].insert(self.park_place[i,j].index("empty"), "moto") / first example which was to hard and long
                     break
@@ -51,7 +52,7 @@ class Avto(Parking_place):
         for i in range(1,3):
             for j in range(0,5):
                 if self.park_place[i][j] == "empty":
-                    print("Here is place, line:{0}, place:{1}".format([i], [j]))
+                    print("Here is place for car, line:{0}, place:{1}".format([i], [j]))
                     self.park_place[i][j] = "avto"
                     break
                 elif self.park_place[i][j] != "empty":
@@ -72,13 +73,3 @@ class Bus(Parking_place):
                 print("There is no place for a Bus")
                 break
             break
-
-
-x = Parking_place()
-x.display_parking()
-x.park_proces("moto")
-x.display_parking()
-x.park_proces("avto")
-x.park_proces("moto")
-x.park_proces("bus")
-x.display_parking()
