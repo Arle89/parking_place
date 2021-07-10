@@ -31,11 +31,18 @@ class Parking_place():
             count_avto = 0
             count_bus = 0
             count_empty = 0
-            for i in range(0,3):
-                    count_moto = self.matrixx[i].count("moto")
-                    count_avto = self.matrixx[i].count("avto")
-                    count_bus = self.matrixx[i].count("bus")
-                    count_empty = self.matrixx[i].count("empty")
+            for i in self.matrixx:
+                for j in i:
+                    if j == "avto":
+                        count_avto += 1
+                    elif j == "moto":
+                        count_moto += 1
+                    elif j == "Bus":
+                        count_bus += 1
+                    elif j == "empty":
+                        count_empty += 1
+                    else:
+                        print("Parking is full !!")
         
             return print("MOTO vehicle is: ",count_moto, "\n", "AVTO vehicle is: ",count_avto,"\n", "BUS vehicle is: ", count_bus, "\n", "EMPTY is: ",count_empty )
 
@@ -78,6 +85,13 @@ class Avto(Parking_place):
     park_place = Parking_place.matrixx
     place = []
 
+    def __str__(self):
+        return f"avto"
+
+    def __repr__(self):
+        return "avto"
+
+
     def park_proces(self):
         for i in range(1,3):
             for j in range(0,5):
@@ -91,7 +105,7 @@ class Avto(Parking_place):
                     continue
             break
     @staticmethod
-    def unparking(self, place):
+    def unparking():
         place = Avto.place
         print ("Place", place[0]+1, place[1]+1, "is empty now")
         Parking_place.matrixx[place[0]][place[1]] = "empty"
@@ -102,13 +116,26 @@ class Avto(Parking_place):
 class Bus(Parking_place):
     park_place = Parking_place.matrixx
     place = []
+
+    def __str__(self):
+        return f"Bus"
+
+    def __repr__(self):
+        return "Bus"
+
+
     def park_proces(self):
+        empty = []
         for i in range(0,5):
-            if i == "empty":
-                print("Here we go, Big one")
-                self.park_place[2] = "\t\t [bus]"
-                self.place.append(i)
-                break
+            if self.park_place[2][i] == "empty":
+                empty.append(i)
+                self.place.append(self.matrixx[2][i])
+                if len(empty) == 4:
+                    print("Here we go, Big one")
+                    self.park_place[2] = "\t\t [bus]"
+                    break
+                else:
+                    continue
             else:
                 print("There is no place for a Bus")
                 break
@@ -116,7 +143,8 @@ class Bus(Parking_place):
 
 
     @staticmethod
-    def unparking(self, place):
+    def unparking():
         place = Bus.place
-        print ("Place", place[0]+1, place[1]+1, "is empty now")
-        Parking_place.matrixx[place[0]][place[1]] = "empty"
+        print ("Place", {0}, {1}, "is empty now".format(place[0], place[1]))
+        for i in range(0,5):
+            Parking_place.matrixx[2][i] = "empty"
