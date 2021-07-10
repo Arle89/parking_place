@@ -7,3 +7,6 @@ To park in some vehicle we're calling parking method of needed vehicle type
 To park off call method unparking.
 Parking method search empty place in correct lines for vehicle type
 Create instance of need class and place it on empty place
+
+
+Maybe not all is perfect, wait for feedback))
